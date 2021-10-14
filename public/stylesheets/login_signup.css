@@ -1,0 +1,45 @@
+body {
+    height: 100%;
+    background:#F8F8F8 !important;
+    font-family: monospace !important;
+}
+
+main {
+    height: 100%;
+}
+
+.login_signup_form {
+    background: white;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+}
+
+.login_signup_image {
+    background: white;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+
+.login_signup_button {
+    background-color: #9ACDD2;
+    padding: 0.2rem 0 0.2rem 0;
+    width: 100%;
+    border-radius: 8%;
+}
+
+.login_signup {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+a {
+    color: gray !important;
+}
+
+a:hover {
+    color: #77b9be !important;
+}
