@@ -103,6 +103,7 @@ app.get('/register_page', (req, res) => {
     res.render("users/register_page")
 })
 
+//remove later
 app.get('/failed message', (req, res) => {
     res.send('Not a valid user')
 })
