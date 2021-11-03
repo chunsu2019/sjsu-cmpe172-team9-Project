@@ -22,12 +22,19 @@
 
 </head>
 
-<body>
+<body> 
+    <div class ="top_bar">
+        <a href ="/account" class="home" >Home</a>
+        <span>Username</span>
+        <a href="/login_page">Logout</a>
+    </div>
+
     <%- include('../partials/flash')%>
     <h1>Your Content</h1>
     <div id="editorjs"></div>
+ 
     <button>Save</button>
-    <p class="logout"><a href="/login_page">Logout</a></p>
+    
 
     <!--Custom js-->
     <script src="/javascripts/main.js"></script>
