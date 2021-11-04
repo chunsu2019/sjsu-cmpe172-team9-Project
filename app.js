@@ -65,9 +65,11 @@ app.use(express.urlencoded({ extended: false }))
 
 //router
 const textRouter = require('./routes/text')
+const profileRouter = require('./routes/profile')
 
 // routes
 app.use('/account', textRouter)
+app.use('/account/profile', profileRouter)
 
 //passport
 app.use(passport.initialize())
@@ -101,6 +103,10 @@ app.get('/login_page', (req, res) => {
 
 app.get('/register_page', (req, res) => {
     res.render("users/register_page")
+})
+
+app.get('/profile', (req, res) => {
+    res.render("account/profile")
 })
 
 //remove later
