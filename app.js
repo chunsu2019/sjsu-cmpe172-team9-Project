@@ -64,12 +64,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 //router
-const textRouter = require('./routes/text')
-const profileRouter = require('./routes/profile')
+const homeRouter = require('./routes/home')
 
 // routes
-app.use('/account', textRouter)
-app.use('/account/profile', profileRouter)
+app.use('/home', homeRouter)
 
 //passport
 app.use(passport.initialize())
@@ -105,9 +103,6 @@ app.get('/register_page', (req, res) => {
     res.render("users/register_page")
 })
 
-app.get('/profile', (req, res) => {
-    res.render("account/profile")
-})
 
 //remove later
 app.get('/failed message', (req, res) => {
@@ -118,7 +113,7 @@ app.post('/login',
     passport.authenticate('local', {failureRedirect: '/account' }),
     function (req, res) {
         req.flash('success', 'welcome')
-        res.redirect('/account')
+        res.redirect('/home')
 });
 
 app.post('/register', async (req, res) => {
