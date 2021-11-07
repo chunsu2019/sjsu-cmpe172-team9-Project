@@ -4,3 +4,6 @@
 - Project Introduction 
   
 - Sample Demo Screenshots 
+- Folder structure as above 
+- Instructions on how to run the project locally. 
+- System Diagram, Class/Sequence/Db Schema from project Report 
