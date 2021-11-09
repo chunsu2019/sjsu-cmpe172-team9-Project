@@ -27,9 +27,18 @@
 
     <%- include('../partials/flash')%>
     <h1>New Story</h1>
+    <div class="form-group">
+        <h3>Title</h3>
+        <input type="text" name="title" id="title" class="form-control">
+    </div>
+
+    <h3>Content</h3>
     <div id="editorjs"></div>
- 
-    <button>Save</button>
+
+    <button type = "submit" class = "btn btn-success">Save</button>
+
+    <a href ="/home" class="btn btn-danger" >Cancel</a>
+    
     
 
     <!--Custom js-->
