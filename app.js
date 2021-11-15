@@ -11,6 +11,7 @@ const mongoose = require('mongoose')
 //const expressLayouts = require('express-ejs-layouts')
 const ejsMate = require('ejs-mate')
 const flash = require('connect-flash')
+const ExpressError = require('./utils/ExpressError')
 
 
 //
@@ -55,6 +56,7 @@ app.use(flash())
 
 //flash middleware
 app.use((req, res, next) => {
+    res.locals.currentUser = req.user
     res.locals.success = req.flash('success')
     res.locals.error = req.flash('error')
     next()
@@ -63,12 +65,6 @@ app.use((req, res, next) => {
 //
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-
-//router
-const homeRouter = require('./routes/home')
-
-// routes
-app.use('/home', homeRouter)
 
 //passport
 app.use(passport.initialize())
@@ -94,6 +90,13 @@ passport.use(new facebookStrategy({
 // static files
 app.use(express.static(path.join(__dirname + '/public')))
 
+//router
+const accountRouter = require('./routes/account')
+const user = require('./models/user')
+const { networkInterfaces } = require('os')
+
+// routes
+app.use('/account', accountRouter)
 
 //Home -> login/signup
 app.get('/login_page', (req, res) => {
@@ -104,35 +107,39 @@ app.get('/register_page', (req, res) => {
     res.render("users/register_page")
 })
 
-
-//remove later
-app.get('/failed message', (req, res) => {
-    res.send('Not a valid user')
-})
-
 app.post('/login',
-    passport.authenticate('local', {failureRedirect: '/account' }),
-    function (req, res) {
-        req.flash('success', 'welcome')
-        res.redirect('/home')
+    passport.authenticate('local', {failureRedirect: '/login_page', failureFlash: true }),
+    (req, res) => {
+        req.flash('success', 'Welcome Back')
+        res.redirect('/account')
 });
+
+app.get('/logout', (req, res) => {
+    req.logout();
+    req.flash('success', 'Goodbye!')
+    res.redirect('/login_page')
+})
 
 app.post('/register', async (req, res) => {
     try {
         const { username, password } = req.body
-        console.log(req.body)
         newUser = new User({ username: username, password: password })
         await User.register(newUser, password, (err, user) => {
             if (err) {
                 console.log(err)
             } else {
-                res.send('/account')
+                res.send('/login_page')
             }
         })
     } catch (e) {
         console.log(e)
     }
 })
+
+app.all('*', (req, res, next) => {
+    next(new ExpressError('Page Not Found...', 404))
+})
+
 
 const PORT = process.env.PORT || 3000
 

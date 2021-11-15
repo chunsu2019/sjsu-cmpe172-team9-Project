@@ -1,4 +1,8 @@
-body {
-    background: #e9e9e9;
-    height: 100%;
-  }
+.home_container {
+  margin-top: 10rem;
+}
+
+.home_text {
+  width: 50%;
+  text-align: center;
+}

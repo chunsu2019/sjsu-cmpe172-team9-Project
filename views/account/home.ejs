@@ -7,14 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="/stylesheets/main.css">
-
-    <!--Editorjs-->
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/paragraph@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+    <link rel="stylesheet" href="/stylesheets/home.css">
 
     <!--Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -22,15 +15,24 @@
 
 </head>
 
-<body> 
-    <%- include('../partials/top_bar')%>
-
+<body>
     <%- include('../partials/flash')%>
-    <h1 class="mb-3">Home</h1>
-    <div id="editorjs"></div>
- 
-    <button>Save</button>
-    
+
+    <%- include('../partials/navbar')%>
+
+    <div class="home_container">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <p class="lh-lg home_text">Ut tellus ipsum, pharetra vel, sagittis eu, scelerisque ut, ligula. Proin pellentesque, nisl sed
+                porta lobortis, ante nisl faucibus libero, sit amet blandit neque erat a diam. Mauris quis
+                ipsum. Phasellus massa dui, faucibus nec, euismod congue, sagittis ut, dui. Maecenas a nulla.
+            </p>
+
+            <div class="mt-4">
+                <a class="btn btn-primary me-5" href="/account/view_story">View Stories</a>
+                <a class="btn btn-primary" href="/account/new_story">Write a Story</a>
+            </div>
+        </div>
+    </div>
 
     <!--Custom js-->
     <script src="/javascripts/main.js"></script>
