@@ -113,6 +113,7 @@ app.get('/register_page', (req, res) => {
     res.render("users/register_page")
 })
 
+
 app.post('/login',
     passport.authenticate('local', {failureRedirect: '/login_page', failureFlash: true }),
     (req, res) => {
