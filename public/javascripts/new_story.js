@@ -17,8 +17,9 @@ const editor = new EditorJS({
             class: ImageTool,
             config: {
                 endpoints: {
-                    byFile: '/account/new_story/save_image',
-                    byUrl: '/account/new_story/save_image',
+                    //uhhh?
+                    byFile: 'https://nameless-dawn-24131.herokuapp.com/account/new_story/save_image',
+                    byUrl: '/https://nameless-dawn-24131.herokuapp.com/account/new_story/save_image',
                 }
             }
         }
