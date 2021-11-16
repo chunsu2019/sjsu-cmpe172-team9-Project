@@ -8,7 +8,8 @@ const storySchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-
+    
+    
     reviews: [
         {
             type: Schema.Types.ObjectId,
