@@ -98,6 +98,12 @@ const { networkInterfaces } = require('os')
 // routes
 app.use('/account', accountRouter)
 
+
+//
+app.get('/', (req, res) => {
+    res.redirect("/login_page")
+})
+
 //Home -> login/signup
 app.get('/login_page', (req, res) => {
     res.render("users/login_page")

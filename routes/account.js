@@ -13,6 +13,7 @@ const {isLoggedIn} = require('../middleware')
 const story = require('../models/story')
 
 const edjsHTML = require('editorjs-html')
+const Review = require('../models/review')
 
 
 router.get('/', isLoggedIn, (req, res) => {
@@ -24,7 +25,8 @@ router.get('/profile', isLoggedIn, (req, res) => {
 })
 
 router.get('/view_story', isLoggedIn, async(req, res) => {
-    const story = await Story.find({})
+    const story = await Story.find({}).populate('reviews')
+
     res.render('story/view_story', {story})
 })
 
@@ -75,7 +77,7 @@ router.get('/edit_story/:id', isLoggedIn, async(req, res) => {
 
 router.get('/read_story/:id', isLoggedIn, async(req, res) => {
     const {id} = req.params
-    const story = await Story.findById(id)
+    const story = await Story.findById(id).populate('reviews')
 
     const blockData = JSON.parse(story.storyBlock)
 
@@ -86,7 +88,18 @@ router.get('/read_story/:id', isLoggedIn, async(req, res) => {
     const edjsParser = edjsHTML()
     const html = edjsParser.parse(cleanData)
 
-    res.render('story/read_story', {html})
+
+    //check if reader is author
+    let isAuthor = new Boolean() 
+
+    if (req.user._id.toString() == story.author._id.toString()) {
+        isAuthor = true
+    }
+    else {
+        isAuthor = false
+    }
+
+    res.render('story/read_story', {id, html, isAuthor, story})
 })
 
 router.post('/new_story/save_image', isLoggedIn, upload.single('image'), async (req, res) => {
@@ -112,5 +125,30 @@ router.post('/new_story/save_image', isLoggedIn, upload.single('image'), async (
 
 
 })
+
+router.post('/:id/write_review', isLoggedIn, async(req, res) => {
+    const story = await Story.findById(req.params.id).populate('reviews')
+    const review = new Review()
+    review.body = req.body.review
+    review.rating = req.body.rating
+
+    story.reviews.push(review)
+
+    //calculate average review
+    let avgRating = 0
+    story.reviews.forEach(review => {
+        avgRating += review.rating
+    });
+
+    avgRating /= story.reviews.length
+
+    story.avgRating = Math.round(avgRating)
+
+    await review.save()
+    await story.save()
+
+    res.redirect('/account/read_story/' + req.params.id)
+}) 
+
 
 module.exports = router

@@ -7,7 +7,15 @@ const storySchema = new Schema({
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+
+    reviews: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Review'
+        }
+    ],
+    avgRating: Number
 })
 
 module.exports = mongoose.model('Story', storySchema)

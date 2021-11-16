@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/stylesheets/main.css">
     <link rel="stylesheet" href="/stylesheets/story/view_story.css">
 
+    <!--Star rating css-->
+    <link rel="stylesheet" href="/stylesheets/rating_stars.css">
+
     <!--Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -28,6 +31,8 @@
                 <div class="card text-center">
                     <div class="card-body">
                         <h5 class="card-title"><%=s.title%></h5>
+                        <hr>
+                        <div class="starability-result" data-rating="<%=s.avgRating%>" style="margin-left: 30%;"></div>
                         <hr>
                         <a href="/account/read_story/<%=s._id%>" class="btn btn-primary" style="width: 100%;">Read</a>
                     </div>

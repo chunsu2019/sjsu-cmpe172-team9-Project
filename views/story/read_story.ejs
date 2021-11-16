@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Read</title>
 
     <!--Editorjs-->
     <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
@@ -20,10 +20,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-    
+    <!--MainCSS-->
     <link rel="stylesheet" href="/stylesheets/main.css">
 
+    <!--read_storyCSS-->
     <link rel="stylesheet" href="/stylesheets/story/read_story.css">
+
+    <!--ratingcss-->
+    <link rel="stylesheet" href="/stylesheets/rating_stars.css">
 
 
     <!--Editorjs-html-->
@@ -39,6 +43,49 @@
         <%-block%>
         <%}%>
     </div>
+
+    <div class="container mt-5" style="width: 50%;">
+        <% if (story.reviews.length != 0) {%>
+            <h1>Reviews</h1>
+            <hr>
+            <div class="d-flex flex-column mt-5 gap-3">
+            <%for (let review of story.reviews) {%>
+                <div>
+                <div class="card">
+                    <div class="mb-3 card-body">
+                        <div class="starability-result mb-5" data-rating="<%=review.rating%>"></div>
+                        <%= review.body %>
+                    </div>
+                </div>
+                </div>
+            <%}%>
+            </div>
+        <%}%>
+    
+        <% if (!isAuthor) {%>
+        <form action="/account/<%=id%>/write_review" method="post" class="mt-5">
+            <hr>
+            <fieldset class="starability-basic mt-5">
+                <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                <input type="radio" id="first-rate1" name="rating" value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="rating" value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="rating" value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="rating" value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="rating" value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset>
+
+            <textarea class="form-control" name="review" id="review" cols="100" rows="5" placeholder="write review"></textarea>
+    
+            <button class="btn btn-success mt-3">Submit</button>
+        </form>
+        <%}%>
+    </div>
+    
 
     <!--Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
