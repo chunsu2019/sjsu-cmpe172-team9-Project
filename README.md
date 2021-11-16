@@ -15,5 +15,4 @@
 -   Run command "node app.js"
 -   Access http://localhost:3000/login_page in the browser
 -
-- 
 - System Diagram, Class/Sequence/Db Schema from project Report 
