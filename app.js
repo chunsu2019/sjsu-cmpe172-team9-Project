@@ -6,7 +6,6 @@ const path = require('path')
 const User = require('./models/user')
 const passport = require('passport')
 const localStrategy = require('passport-local').Strategy
-const facebookStrategy = require('passport-facebook')
 const mongoose = require('mongoose')
 //const expressLayouts = require('express-ejs-layouts')
 const ejsMate = require('ejs-mate')
@@ -40,7 +39,7 @@ app.set('view engine', 'ejs')
 
 //Sessions
 const sessionConfig = {
-    secret: 'this should be secret',
+    secret: 'aaabbbccc',
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -74,18 +73,6 @@ passport.use(User.createStrategy());
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
-passport.use(new facebookStrategy({
-    clientID: "239419804806945",
-    clientSecret: "f8e708684fc6cd2d6c50c48b4bf937c3",
-    callbackURL: "http://localhost:3000/auth/facebook/callback"
-},
-    function (accessToken, refreshToken, profile, cb) {
-        User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-            return cb(err, user);
-        })
-    }
-))
 
 // static files
 app.use(express.static(path.join(__dirname + '/public')))
@@ -132,9 +119,10 @@ app.post('/register', async (req, res) => {
         newUser = new User({ username: username, password: password })
         await User.register(newUser, password, (err, user) => {
             if (err) {
-                console.log(err)
+                req.flash('error', 'Account with the username existed')
+                res.redirect('/register_page')
             } else {
-                res.send('/login_page')
+                res.redirect('/login_page')
             }
         })
     } catch (e) {

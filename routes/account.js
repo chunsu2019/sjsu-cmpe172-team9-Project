@@ -103,11 +103,11 @@ router.get('/read_story/:id', isLoggedIn, async(req, res) => {
 })
 
 router.post('/new_story/save_image', isLoggedIn, upload.single('image'), async (req, res) => {
-    url = "https://api.imgbb.com/1/upload?key=8f61dd89847beb92535bc8d7d3092723"
+    url = process.env.IMGBB_URL
     imgString = req.file.buffer.toString('base64')
 
     const payload = {
-        apiKey: "8f61dd89847beb92535bc8d7d3092723",
+        apiKey: process.env.IMGBB_API_KEY,
         base64string: imgString
     }
 
