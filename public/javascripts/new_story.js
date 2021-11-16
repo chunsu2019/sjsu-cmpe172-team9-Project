@@ -1,6 +1,7 @@
 const editor = new EditorJS({
     holder: 'editorjs',
     tools: {
+        //use to edit header
         header: Header,
         delimiter: Delimiter,
         paragraph: {
