@@ -23,12 +23,14 @@
 ![ReadStory](https://user-images.githubusercontent.com/70332991/142042461-5d1d2e16-01be-466a-8aa5-77dafcaccb3b.png)
 
 - Write New Story
-![NewStory](https://user-images.githubusercontent.com/70332991/142042492-e57a4018-beca-4f49-9153-7373c9c1da59.png)
+![NewStory1](https://user-images.githubusercontent.com/70332991/142043763-e838779a-2517-46d8-9dfc-cbfbfdf1895a.png)
+
 
 - Edit Story
  ![EditStory](https://user-images.githubusercontent.com/70332991/142042518-90ab886f-7f2a-49fe-8270-21033aed43a0.png)
  
-![editStory2](https://user-images.githubusercontent.com/70332991/142042535-5b1bb7b8-4365-4b83-9155-f63a3d8c5312.png)
+![editStory2 1](https://user-images.githubusercontent.com/70332991/142043733-134328ff-9de1-4fe7-89a6-38b0e2b8acfa.png)
+
 
 # Folder structure as above 
 
