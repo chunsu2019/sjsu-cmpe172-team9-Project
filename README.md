@@ -20,25 +20,30 @@
 ![viewStory](https://user-images.githubusercontent.com/70332991/142042446-f81edba9-bf9c-444b-8d18-4387b4d1f95a.png)
 
 - Read Story & Comment
-![ReadStory](https://user-images.githubusercontent.com/70332991/142042461-5d1d2e16-01be-466a-8aa5-77dafcaccb3b.png)
+![read](https://user-images.githubusercontent.com/70332991/142044357-6604244d-4190-4888-8e65-be0546b0b279.png)
 
 - Write New Story
 ![NewStory1](https://user-images.githubusercontent.com/70332991/142043763-e838779a-2517-46d8-9dfc-cbfbfdf1895a.png)
 
-
 - Edit Story
- ![EditStory](https://user-images.githubusercontent.com/70332991/142042518-90ab886f-7f2a-49fe-8270-21033aed43a0.png)
+![EditStory](https://user-images.githubusercontent.com/70332991/142042518-90ab886f-7f2a-49fe-8270-21033aed43a0.png)
  
 ![editStory2 1](https://user-images.githubusercontent.com/70332991/142043733-134328ff-9de1-4fe7-89a6-38b0e2b8acfa.png)
 
 
-# Folder structure as above 
+# Folder structure
+• FrontEnd (views, public) 
+• BackEnd (routes, app.js, middleware.js)
+• Scripts 
+o DB Schema (models)
+o Docker build script (.devcontainer)
+• Readme
 
 # Instructions to run the project locally.
 -   Download this project and unzip it in a folder
 -   Download and Install Node.js
 -   cd to the directory where "app.js" located using terminal/command prompt
--   Run command "node app.js"
+-   Run command `node app.js`
 -   Access http://localhost:3000/login_page in the browser
 
 # System Diagram
