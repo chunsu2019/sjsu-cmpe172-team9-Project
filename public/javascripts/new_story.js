@@ -19,16 +19,16 @@ const editor = new EditorJS({
                 endpoints: {
                     //uhhh?
                     byFile: 'https://nameless-dawn-24131.herokuapp.com/account/new_story/save_image',
-                    byUrl: '/https://nameless-dawn-24131.herokuapp.com/account/new_story/save_image',
+                    byUrl: 'https://nameless-dawn-24131.herokuapp.com/account/new_story/save_image',
                 }
             }
         }
-        
+
     }
 });
 
 document.getElementById('story_form').addEventListener('submit', () => {
     editor.save().then((outputData) => {
-        document.getElementById('storyInput').value = (JSON.stringify(outputData.blocks))   
+        document.getElementById('storyInput').value = (JSON.stringify(outputData.blocks))
     })
 })
