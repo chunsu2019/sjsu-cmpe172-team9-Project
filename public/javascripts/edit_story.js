@@ -24,8 +24,8 @@ const makeEditor = (cleanData) => {
                 class: ImageTool,
                 config: {
                     endpoints: {
-                        byFile: 'http://localhost:3000/account/new_story/save_image',
-                        byUrl: 'http://localhost:3000/account/new_story/save_image',
+                        byFile: '/account/new_story/save_image',
+                        byUrl: '/account/new_story/save_image',
                     }
                 }
             }
