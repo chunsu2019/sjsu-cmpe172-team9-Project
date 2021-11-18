@@ -123,7 +123,6 @@ router.post('/new_story/save_image', isLoggedIn, upload.single('image'), async (
         })
         .catch(error => console.log(error))
 
-
 })
 
 router.post('/:id/write_review', isLoggedIn, async(req, res) => {
