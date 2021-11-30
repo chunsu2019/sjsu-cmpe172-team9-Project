@@ -20,9 +20,6 @@ router.get('/', isLoggedIn, (req, res) => {
     res.render('account/home')
 })
 
-router.get('/profile', isLoggedIn, (req, res) => {
-    res.render('account/profile_page')
-})
 
 router.get('/view_story', isLoggedIn, async(req, res) => {
     const story = await Story.find({}).populate('reviews')
