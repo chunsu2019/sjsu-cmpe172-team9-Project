@@ -39,6 +39,8 @@ o DB Schema (models)
 o Docker build script (.devcontainer)
 • Readme
 
+# Live Demo
+  https://nameless-dawn-24131.herokuapp.com/login_page
 # Instructions to run the project locally.
 -   Download this project and unzip it in a folder
 -   Download and Install Node.js
@@ -46,16 +48,4 @@ o Docker build script (.devcontainer)
 -   Run command `node app.js`
 -   Access http://localhost:3000/login_page in the browser
 
-# System Diagram
-![systemDiagram](https://user-images.githubusercontent.com/70332991/142039418-35941212-471a-4242-b18b-fafaf976271b.png)
 
-# Class Diagram
-![classDiagram](https://user-images.githubusercontent.com/70332991/142040236-5943f762-8e43-4976-9d19-a940c8908f84.png)
-
-# Sequence Diagrams
-![sequenceDiagram1](https://user-images.githubusercontent.com/70332991/142040275-0f0d7134-3fa8-4883-921b-25d24d9aae54.png)
-![sequenceDiagram2](https://user-images.githubusercontent.com/70332991/142040304-38fde91a-1d5f-4906-8050-4973679be60a.png)
-![sequenceDiagram3](https://user-images.githubusercontent.com/70332991/142040331-e49c62cc-8f84-43d4-a706-7ee7408aeaee.png)
-
-# Db Schema
-![dbSchemaDiagram](https://user-images.githubusercontent.com/70332991/142040342-8b7a6b7b-116e-46bd-8e18-b970459a9b04.png)
