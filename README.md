@@ -40,7 +40,7 @@ o Docker build script (.devcontainer)
 • Readme
 
 # Live Demo
-  https://nameless-dawn-24131.herokuapp.com/login_page
+  http://172-env.eba-ubqmtxey.us-west-1.elasticbeanstalk.com/login_page
 # Instructions to run the project locally.
 -   Download this project and unzip it in a folder
 -   Download and Install Node.js
